@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useRouter } from "next/navigation"; // Next.js 13+ navigation hook
 import { format, isEqual } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
@@ -18,6 +19,7 @@ export default function AuthForm() {
   const [name, setName] = React.useState("");
   const [date, setDate] = React.useState<Date>();
   const [isSpecialUser, setIsSpecialUser] = React.useState(false);
+  const router = useRouter();
 
   React.useEffect(() => {
     const targetDate = new Date(2003, 5, 11); // June 11th, 2003
@@ -28,20 +30,25 @@ export default function AuthForm() {
     ) {
       console.log("Special user detected!");
       setIsSpecialUser(true);
+
+      // Set auth cookie and delay redirection by 1 second
+      document.cookie = "auth=true; path=/"; // Set the auth cookie
+      setTimeout(() => {
+        router.push("/"); // Redirect to the root route after 1 second
+      }, 1000);
     } else {
       setIsSpecialUser(false);
     }
-  }, [name, date]);
+  }, [name, date, router]);
 
   return (
     <div
       className={cn(
-        "duration-1000 absolute flex h-screen flex-col items-center justify-center bg-white transition-transform",
+        "absolute flex h-screen flex-col items-center justify-center bg-white transition-transform duration-1000",
         isSpecialUser && "-translate-y-full",
       )}
     >
-      <div className="w-full grow bg-gradient-to-b from-white to-slate-50" />
-
+      <div className="w-full grow bg-gradient-to-b from-white via-white to-slate-50" />
       <form className="flex w-full space-x-4 bg-gradient-to-b from-slate-50 to-slate-100 px-28">
         <Input
           className="h-auto flex-1 border-none bg-transparent px-8 text-7xl capitalize placeholder:text-slate-400 placeholder:transition-colors hover:placeholder:text-slate-900 focus-visible:ring-transparent focus-visible:ring-offset-transparent"

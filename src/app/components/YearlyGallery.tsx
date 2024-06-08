@@ -186,7 +186,7 @@ export default function YearlyGallery() {
         <div
           key={year.year}
           ref={(el) => setGalleryRef(el, yearIndex)}
-          className="relative flex h-[80svh] items-center justify-center overflow-hidden rounded-3xl border border-slate-500"
+          className="relative flex h-[80svh] items-center justify-center overflow-hidden rounded-3xl border border-slate-700 shadow-2xl"
         >
           <p className="bg-gradient-to-b from-slate-600 to-slate-800 bg-clip-text text-9xl font-bold text-transparent">
             {year.year}

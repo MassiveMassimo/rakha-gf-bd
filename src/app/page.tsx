@@ -1,5 +1,6 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Hero from "./components/Hero";
+import YearlyGallery from "./components/YearlyGallery";
 
 export default function Home() {
   return (
@@ -12,11 +13,19 @@ export default function Home() {
           </h1>
         }
       >
-        <video width="100%" height="100%" controls autoPlay playsInline preload="auto">
+        <video
+          width="100%"
+          height="100%"
+          controls
+          autoPlay
+          playsInline
+          preload="auto"
+        >
           <source src="/birthday.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
       </ContainerScroll>
+      <YearlyGallery />
     </main>
   );
 }

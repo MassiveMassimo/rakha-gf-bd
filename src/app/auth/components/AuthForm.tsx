@@ -44,14 +44,14 @@ export default function AuthForm() {
   return (
     <div
       className={cn(
-        "absolute flex h-screen flex-col items-center justify-center bg-white transition-transform duration-1000",
+        "absolute flex h-screen w-full flex-col items-center justify-center bg-white transition-transform duration-1000",
         isSpecialUser && "-translate-y-full",
       )}
     >
       <div className="w-full grow bg-gradient-to-b from-white via-white to-slate-50" />
-      <form className="flex w-full space-x-4 bg-gradient-to-b from-slate-50 to-slate-100 px-28">
+      <form className="flex w-full space-x-4 bg-gradient-to-b from-slate-50 to-slate-100 sm:px-10 lg:px-28">
         <Input
-          className="h-auto flex-1 border-none bg-transparent px-8 text-7xl capitalize placeholder:text-slate-400 placeholder:transition-colors hover:placeholder:text-slate-900 focus-visible:ring-transparent focus-visible:ring-offset-transparent"
+          className="h-auto flex-1 border-none bg-transparent lg:px-8 text-xl capitalize placeholder:text-slate-400 placeholder:transition-colors hover:placeholder:text-slate-900 focus-visible:ring-transparent focus-visible:ring-offset-transparent sm:text-2xl lg:text-7xl"
           placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -61,7 +61,7 @@ export default function AuthForm() {
             <Button
               variant={"ghost"}
               className={cn(
-                "h-auto flex-1 justify-start px-8 text-left text-7xl font-normal hover:bg-transparent focus-visible:ring-transparent focus-visible:ring-offset-transparent",
+                "h-auto flex-1 justify-start lg:px-8 text-left text-xl font-normal hover:bg-transparent focus-visible:ring-transparent focus-visible:ring-offset-transparent sm:text-2xl lg:text-7xl",
                 !date && "text-slate-400 placeholder:transition-colors",
               )}
             >

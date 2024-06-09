@@ -1,6 +1,7 @@
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import Hero from "./components/Hero";
 import YearlyGallery from "./components/YearlyGallery";
+import { Wishes } from "./components/Wishes";
 
 export default function Home() {
   return (
@@ -8,7 +9,7 @@ export default function Home() {
       <Hero />
       <ContainerScroll
         titleComponent={
-          <h1 className="text-4xl font-semibold text-slate-900">
+          <h1 className="text-balance text-6xl font-semibold text-slate-900">
             A gift for my beloved grumpy grandma
           </h1>
         }
@@ -17,8 +18,6 @@ export default function Home() {
           width="100%"
           height="100%"
           controls
-          autoPlay
-          playsInline
           preload="auto"
         >
           <source src="/birthday.webm" type="video/webm" />
@@ -26,6 +25,7 @@ export default function Home() {
         </video>
       </ContainerScroll>
       <YearlyGallery />
+      <Wishes />
     </main>
   );
 }

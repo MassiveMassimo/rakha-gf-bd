@@ -33,7 +33,7 @@ export const ContainerScroll = ({
 
   const rotate = useTransform(scrollYProgress, [-0.2, 0.4], [20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
+  const translate = useTransform(scrollYProgress, [0, 0.5], [80, -100]);
 
   return (
     <div

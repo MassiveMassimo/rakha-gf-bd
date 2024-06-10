@@ -32,6 +32,10 @@ const config: Config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["var(--font-marlin)", "sans-serif"],
+        script: ["var(--font-gochi-hand)", "script"],
+      },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -67,7 +71,11 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-gradient-mask-image"),
+    addVariablesForColors,
+  ],
 };
 
 export default config;

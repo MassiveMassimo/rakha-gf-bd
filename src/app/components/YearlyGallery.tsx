@@ -166,6 +166,20 @@ export default function YearlyGallery() {
 
   const [globalIndex, setGlobalIndex] = useState(0);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
+  const [offset, setOffset] = useState(window.innerWidth >= 640 ? 160 : 20);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setOffset(window.innerWidth >= 640 ? 160 : 20);
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize(); // Initialize offset based on the initial window size
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const activate = (
     yearIndex: number,
@@ -223,16 +237,18 @@ export default function YearlyGallery() {
         }
       });
     };
+
     const handleTouchMove = (e: TouchEvent) => {
       galleryRefs.current.forEach((ref, yearIndex) => {
         if (ref && ref.contains(e.target as Node)) {
+          e.preventDefault(); // Prevent page scrolling
           handleOnMove(e.touches[0].clientX, e.touches[0].clientY, yearIndex);
         }
       });
     };
 
     document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchmove", handleTouchMove, { passive: false });
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
@@ -241,7 +257,7 @@ export default function YearlyGallery() {
   }, [lastPosition, globalIndex, imagesState]);
 
   return (
-    <div className="relative flex flex-col gap-20 overflow-hidden bg-slate-900 py-40 px-5 sm:px-40">
+    <div className="relative flex flex-col gap-20 overflow-hidden bg-slate-900 px-5 py-40 sm:px-40">
       <h2 className="w-full text-center text-6xl font-semibold text-slate-300">
         Throughout the years
       </h2>
@@ -251,7 +267,7 @@ export default function YearlyGallery() {
           ref={(el) => setGalleryRef(el, yearIndex)}
           className="relative flex h-[80svh] items-center justify-center overflow-hidden rounded-3xl border border-slate-700 shadow-2xl"
         >
-          <p className="font-script bg-gradient-to-b from-indigo-500 to-indigo-900 bg-clip-text text-9xl text-transparent">
+          <p className="bg-gradient-to-b from-indigo-500 to-indigo-900 bg-clip-text font-script text-9xl text-transparent">
             {year.year}
           </p>
           {imagesState[yearIndex].map((image, imageIndex) => (
@@ -262,7 +278,7 @@ export default function YearlyGallery() {
                 image.status === "inactive" ? "hidden" : "block"
               }`}
               style={{
-                left: `${image.x - 160}px`,
+                left: `${image.x - offset}px`,
                 top: `${image.y}px`,
                 zIndex: image.zIndex,
               }}

@@ -2,6 +2,7 @@
 
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import { Confetti } from "@/components/ui/confetti";
+import SparklesText from "@/components/ui/sparkles-text";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
@@ -48,9 +49,7 @@ export default function Hero() {
         }}
         className="relative flex flex-col items-center justify-center gap-4 px-4"
       >
-        <div className="text-center text-3xl font-bold md:text-7xl">
-          Happy Birthday Mayllo!
-        </div>
+        <SparklesText text="Happy Birthday Mayllo!" />
       </motion.div>
     </AuroraBackground>
   );

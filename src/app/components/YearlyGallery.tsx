@@ -241,7 +241,7 @@ export default function YearlyGallery() {
   }, [lastPosition, globalIndex, imagesState]);
 
   return (
-    <div className="relative flex flex-col gap-20 overflow-hidden bg-slate-900 p-40">
+    <div className="relative flex flex-col gap-20 overflow-hidden bg-slate-900 py-40 px-5 sm:px-40">
       <h2 className="w-full text-center text-6xl font-semibold text-slate-300">
         Throughout the years
       </h2>

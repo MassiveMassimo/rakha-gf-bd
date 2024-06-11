@@ -92,6 +92,11 @@ const reviews = [
     body: "Selamat bertambah umur rafienza maylla!!!! Semoga sehat dan bahagia selaluu. Semangatt trs kejar cita cita dan masa depaanzz. INGAT! Jalani dgn ikhlas, biar tuhan mengatur yg lainnya💥💥💥💥 ",
     img: "/people/vania.webp",
   },
+  {
+    name: "Asya",
+    body: "Dearest maylllooo!! Happiest birthday to youuu, i hope all of your best wishes come truee and all the best for you comes swiftly and smoothly!!! Semoga you are continously surrounded by love and happinesss always💗💗. Semoga kita cepet ketemu lagii dan updates-updates dan ngoceh lagii😚😚 Sehat selalu Maylla cantiikk🥰🥰",
+    img: "/people/asya.webp",
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 3);

@@ -87,6 +87,11 @@ const reviews = [
     body: "Mayllaaa happy birthday cantikkk!!! Semoga panjang umur, sehat selalu, diperbanyak rezeki dan dilancarkan segala urusannya yaa🫶🏻 thankyou udah mau jadi temen akuuu hehehe kangen bgt lohhh🥺 sehat sehat and take care ya disanaa ditunggu yaa main barengnya lagi sayanggg😘",
     img: "/people/kay.webp",
   },
+  {
+    name: "Vania",
+    body: "Selamat bertambah umur rafienza maylla!!!! Semoga sehat dan bahagia selaluu. Semangatt trs kejar cita cita dan masa depaanzz. INGAT! Jalani dgn ikhlas, biar tuhan mengatur yg lainnya💥💥💥💥 ",
+    img: "/people/vania.webp",
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 3);

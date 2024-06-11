@@ -166,19 +166,21 @@ export default function YearlyGallery() {
 
   const [globalIndex, setGlobalIndex] = useState(0);
   const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
-  const [offset, setOffset] = useState(window.innerWidth >= 640 ? 160 : 20);
+  const [offset, setOffset] = useState(20); // Default to 20px
 
   useEffect(() => {
-    const handleResize = () => {
+    const updateOffset = () => {
       setOffset(window.innerWidth >= 640 ? 160 : 20);
     };
 
-    window.addEventListener("resize", handleResize);
-    handleResize(); // Initialize offset based on the initial window size
+    if (typeof window !== "undefined") {
+      updateOffset(); // Set initial offset based on current window size
+      window.addEventListener("resize", updateOffset);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      return () => {
+        window.removeEventListener("resize", updateOffset);
+      };
+    }
   }, []);
 
   const activate = (
